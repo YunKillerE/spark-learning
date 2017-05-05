@@ -6,13 +6,19 @@
     
 # 第一章：spark基础知识
 
-    spark产生背景
-    spark生态圈简介
-    spark运行架构
-    spark编程模型
-    RDD、Dateframe、Dataset
-    spark部署
-    spark开发环境
+   [spark产生背景](https://github.com/jimmy-src/spark-learning/wiki/spark%E4%BA%A7%E7%94%9F%E8%83%8C%E6%99%AF)
+   
+   spark生态圈简介
+   
+   spark运行架构
+   
+   spark编程模型
+   
+   RDD、Dateframe、Dataset
+   
+   spark部署
+   
+   spark开发环境
 
 # 第二章：External Data Sources
 
