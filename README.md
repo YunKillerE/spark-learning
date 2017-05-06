@@ -6,9 +6,9 @@
     
 # 第一章：spark基础知识
 
-   [spark简介](https://github.com/jimmy-src/spark-learning/wiki/spark%E4%BA%A7%E7%94%9F%E8%83%8C%E6%99%AF)
+   [spark简介](https://github.com/jimmy-src/spark-learning/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9Aspark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/spark%E7%AE%80%E4%BB%8B.md)
    
-   spark生态系统简介
+   [spark生态系统简介](https://github.com/jimmy-src/spark-learning/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9Aspark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/spark%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B.md)
    
    spark运行架构
    
