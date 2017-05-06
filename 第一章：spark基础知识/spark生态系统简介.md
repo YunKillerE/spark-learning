@@ -55,7 +55,7 @@ Spark生态圈也称为BDAS（伯克利数据分析栈），是伯克利APMLab�
 
 Spark是整个BDAS的核心组件，也包括了冉冉升起的分布式内存系统Alluxio(Tachyon)，当然还包括著名的资源管理的开源软件Mesos。可以说Amplab最近几年引领了大数据发展的技术创新的浪潮。
 
-![the Berkeley Data Analytics Stack](https://github.com/jimmy-src/spark-learning/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0/image/BDAS.jpg)
+![the Berkeley Data Analytics Stack](https://github.com/jimmy-src/spark-learning/blob/master/Public%20File/image/BDAS.jpg)
 
 > 1,  Spark Core
 
@@ -71,11 +71,11 @@ SparkStreaming是一个对实时数据流进行高通量、容错处理的流式
 
 * Spark Streaming是将流式计算分解成一系列短小的批处理作业。这里的批处理引擎是Spark，也就是把Spark Streaming的输入数据按照batch size（如1秒）分成一段一段的数据（Discretized Stream），每一段数据都转换成Spark中的RDD（Resilient Distributed Dataset），然后将Spark Streaming中对DStream的Transformation操作变为针对Spark中对RDD的Transformation操作，将RDD经过操作变成中间结果保存在内存中。整个流式计算根据业务的需求可以对中间的结果进行叠加，或者存储到外部设备
 
-![](https://github.com/jimmy-src/spark-learning/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0/image/Spark%20Streaming.png)
+![](https://github.com/jimmy-src/spark-learning/blob/master/Public%20File/image/Spark%20Streaming.png)
 
 * 容错性：对于流式计算来说，容错性至关重要。首先我们要明确一下Spark中RDD的容错机制。每一个RDD都是一个不可变的分布式可重算的数据集，其记录着确定性的操作继承关系（lineage），所以只要输入数据是可容错的，那么任意一个RDD的分区（Partition）出错或不可用，都是可以利用原始输入数据通过转换操作而重新算出的。
 
-![]()
+![](https://github.com/jimmy-src/spark-learning/blob/master/Public%20File/image/spark%20Streaming%20fault%20tolerance.png)
 
 * 对于Spark Streaming来说，其RDD的传承关系如图3所示，图中的每一个椭圆形表示一个RDD，椭圆形中的每个圆形代表一个RDD中的一个Partition，图中的每一列的多个RDD表示一个DStream（图中有三个DStream），而每一行最后一个RDD则表示每一个Batch Size所产生的中间结果RDD。我们可以看到图中的每一个RDD都是通过lineage相连接的，由于Spark Streaming输入数据可以来自于磁盘，例如HDFS（多份拷贝）或是来自于网络的数据流（Spark Streaming会将网络输入数据的每一个数据流拷贝两份到其他的机器）都能保证容错性。所以RDD中任意的Partition出错，都可以并行地在其他机器上将缺失的Partition计算出来。这个容错恢复方式比连续计算模型（如Storm）的效率更高。
 * 实时性：对于实时性的讨论，会牵涉到流式处理框架的应用场景。Spark Streaming将流式计算分解成多个Spark Job，对于每一段数据的处理都会经过Spark DAG图分解，以及Spark的任务集的调度过程。对于目前版本的Spark Streaming而言，其最小的Batch Size的选取在0.5~2秒钟之间（Storm目前最小的延迟是100ms左右），所以Spark Streaming能够满足除对实时性要求非常高（如高频实时交易）之外的所有流式准实时计算场景。
@@ -215,8 +215,13 @@ Spark Streaming与Storm都可以用于进行实时流计算。 但是他们两�
 
 
 参考资料：
+
     http://spark.apache.org/
+    
     http://www.cnblogs.com/shishanyuan/archive/2015/08/04/4700615.html
+    
     https://amplab.cs.berkeley.edu/software/
+    
     http://www.alluxio.org/docs/1.4/cn/Architecture.html
+    
     http://www.cnblogs.com/liuwei6/p/6587467.html
