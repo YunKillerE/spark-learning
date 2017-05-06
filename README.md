@@ -1,9 +1,3 @@
-# 主要参考Packt的两本书
-
-    spark cookbook.pdf
-    Packt.Spark.2.0.for.Beginners.pdf
-    
-    
 # 第一章：spark基础知识
 
    [spark简介](https://github.com/jimmy-src/spark-learning/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9Aspark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/spark%E7%AE%80%E4%BB%8B.md)
@@ -92,24 +86,8 @@
     
     
 
+# 代码主要参考Packt的两本书
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    spark cookbook.pdf
+    Packt.Spark.2.0.for.Beginners.pdf
+    
