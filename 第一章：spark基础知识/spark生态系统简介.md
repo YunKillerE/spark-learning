@@ -10,13 +10,13 @@ Spark使用Scala语言进行实现，它是一种面向对象、函数式编程�
 接收非同步信息而不是共享数据，该方式被称为：Shared Nothing 模型）。在Spark官网上介绍，它具有运行速度快、易用性好、通用性强和随处运行等特点。
 
 
-> 1, 运行数据快
+** 1. 运行速度快 
 
 Spark拥有DAG执行引擎，支持在内存中对数据进行迭代计算。官方提供的数据表明，如果数据由磁盘读取，速度是Hadoop MapReduce的10倍以上，如果数据从内存中读取，速度可以高达100多倍。
 
 ![](http://spark.apache.org/images/logistic-regression.png)
 
-> 2, 易用性好
+** 2. 易用性好
 
 Write applications quickly in Java, Scala, Python, R.
 
@@ -45,6 +45,7 @@ You can run Spark using its standalone cluster mode, on EC2, on Hadoop YARN, or 
 
 ![](http://spark.apache.org/images/spark-runs-everywhere.png)
 
+***
 
 # spark生态圈
 
@@ -177,10 +178,11 @@ SparkR是AMPLab发布的一个R开发包，为Apache Spark提供了轻量的前�
 
 Alluxio的设计使用了单Master和多Worker的架构。从高层的概念理解，Alluxio可以被分为三个部分，Master，Worker和Client。Master和Worker一起组成了Alluxio的服务端，它们是系统管理员维护和管理的组件。Client通常是应用程序，如Spark或MapReduce作业，或者Alluxio的命令行用户。Alluxio用户一般只与Alluxio的Client组件进行交互。
 
+***
 
 # Spark & Hadoop
 
-> Spark VS MapReduce 
+** Spark VS MapReduce **
 
 MapReduce能够完成的各种离线批处理功能，以及常见算法（ 比如二次排序、 topn等），基于Spark RDD的核心编程， 都可以实现， 并且可以更好地、 更容易地实现。 而且基于Spark RDD编写的离线批处理程序， 运行速度是MapReduce的数倍， 速度上有非常明显的优势。
 
