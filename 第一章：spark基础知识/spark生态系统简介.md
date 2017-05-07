@@ -10,13 +10,13 @@ Spark使用Scala语言进行实现，它是一种面向对象、函数式编程�
 接收非同步信息而不是共享数据，该方式被称为：Shared Nothing 模型）。在Spark官网上介绍，它具有运行速度快、易用性好、通用性强和随处运行等特点。
 
 
-** 1. 运行速度快 
+**1. 运行速度快**
 
 Spark拥有DAG执行引擎，支持在内存中对数据进行迭代计算。官方提供的数据表明，如果数据由磁盘读取，速度是Hadoop MapReduce的10倍以上，如果数据从内存中读取，速度可以高达100多倍。
 
 ![](http://spark.apache.org/images/logistic-regression.png)
 
-** 2. 易用性好
+**2. 易用性好**
 
 Write applications quickly in Java, Scala, Python, R.
 
@@ -29,7 +29,7 @@ Word count in Spark's Python API:
      .map(lambda word: (word, 1))
      .reduceByKey(lambda a, b: a+b)
 
-> 3, 通用性强
+**3. 通用性强**
 
 Combine SQL, streaming, and complex analytics.
 
@@ -37,7 +37,7 @@ Spark powers a stack of libraries including SQL and DataFrames, MLlib for machin
 
 ![](http://spark.apache.org/images/spark-stack.png)
 
-> 4, Runs Everywhere
+**4. Runs Everywhere**
 
 Spark runs on Hadoop, Mesos, standalone, or in the cloud. It can access diverse data sources including HDFS, Cassandra, HBase, and S3.
 
@@ -58,7 +58,7 @@ Spark是整个BDAS的核心组件，也包括了冉冉升起的分布式内存�
 
 ![the Berkeley Data Analytics Stack](https://github.com/jimmy-src/spark-learning/blob/master/Public%20File/image/BDAS.jpg "来源：https://amplab.cs.berkeley.edu/software/")
 
-> 1,  Spark Core
+**1.  Spark Core**
 
 * 提供了有向无环图（DAG）的分布式并行计算框架，并提供Cache机制来支持多次迭代计算或者数据共享，大大减少迭代计算之间读取数据局的开销，这对于需要进行多次迭代的数据挖掘和分析性能有很大提升
 * 在Spark中引入了RDD (Resilient Distributed Dataset) 的抽象，它是分布在一组节点中的只读对象集合，这些集合是弹性的，如果数据集一部分丢失，则可以根据“血统”对它们进行重建，保证了数据的高容错性；
@@ -66,7 +66,7 @@ Spark是整个BDAS的核心组件，也包括了冉冉升起的分布式内存�
 * 使用多线程池模型来减少task启动开稍
 * 采用容错的、高可伸缩性的akka作为通讯框架
 
-> 2, Spark Streaming
+**2. Spark Streaming**
 
 SparkStreaming是一个对实时数据流进行高通量、容错处理的流式处理系统,可以对多种数据源（如Kdfka、Flume、Twitter、Zero和TCP 套接字）进行类似Map、Reduce和Join等复杂操作，并将结果保存到外部文件系统、数据库或应用到实时仪表盘。
 
@@ -82,7 +82,7 @@ SparkStreaming是一个对实时数据流进行高通量、容错处理的流式
 * 实时性：对于实时性的讨论，会牵涉到流式处理框架的应用场景。Spark Streaming将流式计算分解成多个Spark Job，对于每一段数据的处理都会经过Spark DAG图分解，以及Spark的任务集的调度过程。对于目前版本的Spark Streaming而言，其最小的Batch Size的选取在0.5~2秒钟之间（Storm目前最小的延迟是100ms左右），所以Spark Streaming能够满足除对实时性要求非常高（如高频实时交易）之外的所有流式准实时计算场景。
 
 
-> 3, Spark SQL
+**3. Spark SQL**
 
 Shark是SparkSQL的前身，很早以前Hive可以说是SQL on Hadoop的唯一选择，负责将SQL编译成可扩展的MapReduce作业，鉴于Hive的性能以及与Spark的兼容，Shark项目由此而生。
 
@@ -123,7 +123,7 @@ Query and join different data sources:
 ![](http://spark.apache.org/images/jdbc.png)
 
 
-> 4, Spark MLlib
+**4. Spark MLlib**
 
 MLlib is Apache Spark's scalable machine learning library.
 
@@ -144,7 +144,7 @@ Calling MLlib in Python:
 
 ![](http://spark.apache.org/images/hadoop.jpg)
 
-> 5, Spark GraphX
+**5. Spark GraphX**
 
 GraphX是Spark中用于图(e.g., Web-Graphs and Social Networks)和图并行计算(e.g., PageRank and Collaborative Filtering)的API,可以认为是GraphLab(C++)和Pregel(C++)在Spark(Scala)上的重写及优化，跟其他分布式图计算框架相比，GraphX最大的贡献是，在Spark之上提供一栈式数据解决方案，可以方便且高效地完成图计算的一整套流水作业。GraphX最先是伯克利AMPLAB的一个分布式图计算框架项目，后来整合到Spark中成为一个核心组件。
 
@@ -164,11 +164,11 @@ Using GraphX in Scala:
 
 * Algorithms: 一个高度灵活的API，GraphX自带的各种图形算法
 
-> 6, SparkR
+**6. SparkR**
 
 SparkR是AMPLab发布的一个R开发包，为Apache Spark提供了轻量的前端。SparkR提供了Spark中弹性分布式数据集（RDD）的API，用户可以在集群上通过R shell交互性的运行job。
 
-> 7, Alluxio
+**7. Alluxio**
 
 后面会用到Alluxio来进行优化，这里先简单介绍一下
 
@@ -182,7 +182,7 @@ Alluxio的设计使用了单Master和多Worker的架构。从高层的概念理�
 
 # Spark & Hadoop
 
-** Spark VS MapReduce **
+**Spark VS MapReduce**
 
 MapReduce能够完成的各种离线批处理功能，以及常见算法（ 比如二次排序、 topn等），基于Spark RDD的核心编程， 都可以实现， 并且可以更好地、 更容易地实现。 而且基于Spark RDD编写的离线批处理程序， 运行速度是MapReduce的数倍， 速度上有非常明显的优势。
 
@@ -191,7 +191,7 @@ Spark相较于MapReduce速度快的最主要原因就在于， MapReduce的计�
 但是Spark也有其劣势。 由于Spark基于内存进行计算， 虽然开发容易， 但是真正面对大数据的时候（ 比如 一次操作针对10亿以上级别） ， 在没有进行调优的情况下， 可能会出现各种各样的问题， 比如OOM内存溢出等 等。 导致Spark程序可能都无法完全运行起来， 就报错挂掉了， 而MapReduce即使是运行缓慢， 但是至少可以 慢慢运行完。 
 
 
-> Spark SQL VS Hive 
+**Spark SQL VS Hive**
 
 Spark SQL实际上并不能完全替代Hive，因为Hive是一种基于HDFS的数据仓库， 并且提供了基于SQL模型的，针对存储了大数据的数据仓库，进行分布式交互查询的查询引擎。 
 
@@ -203,7 +203,7 @@ Spark SQL的一个优点，相较于Hive查询引擎来说，就是速度快，�
 
 因此可以与Spark的其他组件无缝整合使用，配合起来实现许多复杂的功能。比如Spark SQL支持可以直接针对hdfs文件执行sql语句！
 
-> Spark Streaming VS Storm
+**Spark Streaming VS Storm**
 
 Spark Streaming与Storm都可以用于进行实时流计算。 但是他们两者的区别是非常大的。 其中区别之一， 就是， Spark Streaming和Storm的计算模型完全不一样， Spark Streaming是基于RDD的， 因此需要将一小段时间内的， 比如1秒内的数据，收集起来， 作为一个RDD， 然后再针对这个batch的数据进行处理。 而Storm却可以做到每来一条数据， 都可以立即进行处理 和计算。 因此， Spark Streaming实际上严格意义上来说， 只能称作准实时的流计算框架； 而Storm是真正意义上的实时计算 框架。
 
