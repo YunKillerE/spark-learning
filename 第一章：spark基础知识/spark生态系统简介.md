@@ -35,7 +35,7 @@ Combine SQL, streaming, and complex analytics.
 
 Spark powers a stack of libraries including SQL and DataFrames, MLlib for machine learning, GraphX, and Spark Streaming. You can combine these libraries seamlessly in the same application.
 
-![](http://spark.apache.org/images/spark-stack.png)
+<img src="http://spark.apache.org/images/spark-stack.png" width = "300" height = "200" alt="图片名称" align=center />
 
 **4. Runs Everywhere**
 
@@ -43,7 +43,7 @@ Spark runs on Hadoop, Mesos, standalone, or in the cloud. It can access diverse 
 
 You can run Spark using its standalone cluster mode, on EC2, on Hadoop YARN, or on Apache Mesos. Access data in HDFS, Cassandra, HBase, Hive, Tachyon, and any Hadoop data source.
 
-![](http://spark.apache.org/images/spark-runs-everywhere.png)
+<img src="http://spark.apache.org/images/spark-runs-everywhere.png" width = "300" height = "200" alt="图片名称" align=center />
 
 ***
 
@@ -72,11 +72,11 @@ SparkStreaming是一个对实时数据流进行高通量、容错处理的流式
 
 * Spark Streaming是将流式计算分解成一系列短小的批处理作业。这里的批处理引擎是Spark，也就是把Spark Streaming的输入数据按照batch size（如1秒）分成一段一段的数据（Discretized Stream），每一段数据都转换成Spark中的RDD（Resilient Distributed Dataset），然后将Spark Streaming中对DStream的Transformation操作变为针对Spark中对RDD的Transformation操作，将RDD经过操作变成中间结果保存在内存中。整个流式计算根据业务的需求可以对中间的结果进行叠加，或者存储到外部设备
 
-![](https://github.com/jimmy-src/spark-learning/blob/master/Public%20File/image/Spark%20Streaming.png "来源：http://www.jianshu.com/p/2b23a3fb479d")
+<img src="https://github.com/jimmy-src/spark-learning/blob/master/Public%20File/image/Spark%20Streaming.png" width = "300" height = "200" alt="来源：http://www.jianshu.com/p/2b23a3fb479d" align=center />
 
 * 容错性：对于流式计算来说，容错性至关重要。首先我们要明确一下Spark中RDD的容错机制。每一个RDD都是一个不可变的分布式可重算的数据集，其记录着确定性的操作继承关系（lineage），所以只要输入数据是可容错的，那么任意一个RDD的分区（Partition）出错或不可用，都是可以利用原始输入数据通过转换操作而重新算出的。
 
-![](https://github.com/jimmy-src/spark-learning/blob/master/Public%20File/image/spark%20Streaming%20fault%20tolerance.png "来源：http://www.jianshu.com/p/2b23a3fb479d")
+<img src="https://github.com/jimmy-src/spark-learning/blob/master/Public%20File/image/spark%20Streaming%20fault%20tolerance.png" width = "300" height = "200" alt="来源：http://www.jianshu.com/p/2b23a3fb479d" align=center />
 
 * 对于Spark Streaming来说，其RDD的传承关系如图3所示，图中的每一个椭圆形表示一个RDD，椭圆形中的每个圆形代表一个RDD中的一个Partition，图中的每一列的多个RDD表示一个DStream（图中有三个DStream），而每一行最后一个RDD则表示每一个Batch Size所产生的中间结果RDD。我们可以看到图中的每一个RDD都是通过lineage相连接的，由于Spark Streaming输入数据可以来自于磁盘，例如HDFS（多份拷贝）或是来自于网络的数据流（Spark Streaming会将网络输入数据的每一个数据流拷贝两份到其他的机器）都能保证容错性。所以RDD中任意的Partition出错，都可以并行地在其他机器上将缺失的Partition计算出来。这个容错恢复方式比连续计算模型（如Storm）的效率更高。
 * 实时性：对于实时性的讨论，会牵涉到流式处理框架的应用场景。Spark Streaming将流式计算分解成多个Spark Job，对于每一段数据的处理都会经过Spark DAG图分解，以及Spark的任务集的调度过程。对于目前版本的Spark Streaming而言，其最小的Batch Size的选取在0.5~2秒钟之间（Storm目前最小的延迟是100ms左右），所以Spark Streaming能够满足除对实时性要求非常高（如高频实时交易）之外的所有流式准实时计算场景。
@@ -116,12 +116,11 @@ Query and join different data sources:
 
 * Hive Compatibility: Spark SQL reuses the Hive frontend and metastore, giving you full compatibility with existing Hive data, queries, and UDFs. Simply install it alongside Hive.
 
-![](http://spark.apache.org/images/sql-hive-arch.png)
+<img src="http://spark.apache.org/images/sql-hive-arch.png" width = "300" height = "200" alt="来源：spark" />
 
 * Standard Connectivity: A server mode provides industry standard JDBC and ODBC connectivity for business intelligence tools.
 
-![](http://spark.apache.org/images/jdbc.png)
-
+<img src="http://spark.apache.org/images/jdbc.png" width = "300" height = "200" alt="来源：spark" />
 
 **4. Spark MLlib**
 
@@ -138,11 +137,11 @@ Calling MLlib in Python:
 
 * Performance: High-quality algorithms, 100x faster than MapReduce.
 
-![](http://spark.apache.org/images/logistic-regression.png)
+<img src="http://spark.apache.org/images/logistic-regression.png" width = "300" height = "200" alt="来源：spark" />
 
 * Easy to Deploy: If you have a Hadoop 2 cluster, you can run Spark and MLlib without any pre-installation. Otherwise, Spark is easy to run standalone or on EC2 or Mesos. You can read from HDFS, HBase, or any Hadoop data source.
 
-![](http://spark.apache.org/images/hadoop.jpg)
+<img src="http://spark.apache.org/images/hadoop.jpg" width = "300" height = "200" alt="来源：spark" />
 
 **5. Spark GraphX**
 
@@ -160,7 +159,7 @@ Using GraphX in Scala:
 
 * Speed: GraphX competes on performance with the fastest graph systems while retaining Spark's flexibility, fault tolerance, and ease of use.
 
-![End-to-end PageRank performance (20 iterations, 3.7B edges)](http://spark.apache.org/images/graphx-perf-comparison.png)
+<img src="http://spark.apache.org/images/graphx-perf-comparison.png" width = "300" height = "200" alt="来源：spark" />
 
 * Algorithms: 一个高度灵活的API，GraphX自带的各种图形算法
 
