@@ -1,3 +1,8 @@
+# 环境
+    
+    spark 2.1.1
+    CDH 5.11.0
+
 # 第一章：spark基础知识
 
    [spark简介](https://github.com/jimmy-src/spark-learning/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9Aspark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/spark%E7%AE%80%E4%BB%8B.md)
@@ -62,28 +67,6 @@
     Optimizing garbage collection 
     Optimizing the level of parallelism 
     Understanding the future of optimization – project Tungsten
-    
-# ==============spark2.x===================
- 
-# 第八章：spark 2.x transformation & action
-
-    transformation
-    action
-
-# 第九章：spark 2.x SQL
-
-    DataFrame & DataSet
-    Aggregations in Spark SQL
-    multi-datasource joining with SparkSQL
-    Data Catalogs
-    
-# 第十章：spark 2.x Machine Learning
-
-    algorithms 分类
-    Wine quality prediction
-    Wine classification
-    Feature algorithms
-    
     
 
 # 代码主要参考Packt的两本书
