@@ -69,6 +69,10 @@
     Understanding the future of optimization – project Tungsten
     
 
+# Spark常见故障解决办法
+
+
+
 # 代码主要参考Packt的两本书
 
     spark cookbook.pdf
