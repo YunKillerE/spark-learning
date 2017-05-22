@@ -6,14 +6,24 @@
 # 第一章：spark基础知识
 
    [spark简介](https://github.com/jimmy-src/spark-learning/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9Aspark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/spark%E7%AE%80%E4%BB%8B.md)
-   
+        
+           spark简单的介绍
+        
    [spark生态系统简介](https://github.com/jimmy-src/spark-learning/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9Aspark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/spark%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B.md)
+   
+           spark几大模块的介绍，还介绍了BDAS，以及Alluxio等
    
    spark运行架构
    
+           spark常见术语，运行流程原理，rdd原理，spark on yarn等
+   
    spark编程模型
    
+            spark编程中基本概念，以及trasformations和action中的算子
+   
    RDD、Dateframe、Dataset
+   
+            做个简单的比较
    
    spark部署
    
