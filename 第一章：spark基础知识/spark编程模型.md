@@ -53,7 +53,7 @@ RDD具体参考spark运行架构的详细描述，主要提供了Transformations
 
 在Spark运行时，一个函数传递给RDD内的patition操作时，该函数所用到的变量在每个运算节点上都复制并维护了一份，并且各个节点之间不会相互影响。但是在Spark Application中，可能需要共享一些变量，提供Task或驱动程序使用。Spark提供了两种共享变量：
 
-广播变量（Broadcast Variables）：可以缓存到各个节点的共享变量，通常为只读
+**广播变量（Broadcast Variables）：** 可以缓存到各个节点的共享变量，通常为只读
 
 * 广播变量缓存到各个节点的内存中，而不是每个 Task
 
@@ -67,7 +67,7 @@ RDD具体参考spark运行架构的详细描述，主要提供了Transformations
 
 `val broadcastVar = sc.broadcast(Array(1, 2, 3))`
 
-累加器（accumulator）：只支持加法操作的变量，可以实现计数器和变量求和。用户可以调用SparkContext.accumulator(v)创建一个初始值为v的累加器，而运行在集群上的Task可以使用“+=”操作，但这些任务却不能读取；只有驱动程序才能获取累加器的值
+**累加器（accumulator）：** 只支持加法操作的变量，可以实现计数器和变量求和。用户可以调用SparkContext.accumulator(v)创建一个初始值为v的累加器，而运行在集群上的Task可以使用“+=”操作，但这些任务却不能读取；只有驱动程序才能获取累加器的值
 
 使用方法：
 
@@ -123,7 +123,7 @@ RDD 最适合那种在数据集上的所有元素都执行相同操作的批处�
 
 <img src="https://github.com/jimmy-src/spark-learning/blob/master/Public%20File/image/TrasformationsAndActions.jpg" width = "600" height = "400" alt="来源：http://www.jianshu.com/p/2b23a3fb479d" align=center />
 
-*Transformations （转换*
+**Transformations （转换）**
 
 下表列出了一些 Spark 常用的 transformations（转换）。详情请参考 RDD API 文档（Scala，Java，Python，R）和 pair RDD 函数文档（Scala，Java）。
 
@@ -150,7 +150,7 @@ sample(withReplacement, fraction, seed)	|	样本数据，设置是否放回（wi
 sortByKey([ascending], [numTasks])	|	在一个 (K, V) pair 的 dataset 上调用时，其中的 K 实现了 Ordered，返回一个按 keys 升序或降序的 (K, V) pairs 的 dataset。
 union(otherDataset)	|	返回一个新的 dataset，它包含了 source dataset（源数据集）和 otherDataset（其它数据集）的并集。
 
-*Actions （动作）*
+**Actions （动作）**
 
 下面列出了一些 Spark 常用的 actions 操作。详细请参考 RDD API 文档 (Scala, Java, Python, R) 和 pair RDD 函数文档 (Scala, Java)。
 
