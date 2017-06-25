@@ -1,3 +1,7 @@
+官方文档中文版
+
+    http://www.apache.wiki/pages/viewpage.action?pageId=2887249
+
 spark编程示例：
 
     http://spark.apache.org/examples.html

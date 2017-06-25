@@ -27,14 +27,6 @@ object SparkLoadWriteHDFS {
     //WordCount(sc,InputFilePath,OutPutFilePath,"snappy")
 
     val job = new Job()
-    job.setOutputFormatClass(class[TextOutputFormat[LongWritable,Text]])
-
-    job.getConfiguration().set("mapred.output.compress", "true")
-    job.getConfiguration().set("mapred.output.compression.codec", "com.hadoop.compression.lzo.LzopCodec")
-
-    val textFile = sc.newAPIHadoopFile(InputFilePath, classOf[LzoTextInputFormat],classOf[LongWritable], classOf[Text],job.getConfiguration())
-
-    textFile.saveAsNewAPIHadoopFile(args(1), classOf[LongWritable], classOf[Text],classOf[TextOutputFormat[LongWritable,Text]],job.getConfiguration())
 
   }
 
