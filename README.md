@@ -79,7 +79,7 @@
 
 # Spark常见故障解决办法
 
-
+[spark常见故障](https://github.com/jimmy-src/troubleshooting-and-optimization/blob/master/Spark%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/spark%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C.md)
 
 # 代码主要参考Packt的两本书
 
