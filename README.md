@@ -13,23 +13,21 @@
    
            spark几大模块的介绍，还介绍了BDAS，以及Alluxio等
    
-   spark运行架构
+   [spark运行架构](https://github.com/jimmy-src/spark-learning/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9Aspark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/spark%E8%BF%90%E8%A1%8C%E6%9E%B6%E6%9E%84.md)
    
            spark常见术语，运行流程原理，rdd原理，spark on yarn等
    
-   spark编程模型
+   [spark编程模型](https://github.com/jimmy-src/spark-learning/blob/master/%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9Aspark%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/spark%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B.md)
    
             spark编程中基本概念，以及trasformations和action中的算子
    
    RDD、Dateframe、Dataset
    
-            做个简单的比较
-   
    spark部署
    
    spark开发环境
 
-# 第二章：External Data Sources
+# [第二章：External Data Sources](https://github.com/jimmy-src/spark-learning/tree/master/%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9AExternal%20Data%20Sources)
 
     Loading data from the local flesystem 
     Loading data from HDFS 
