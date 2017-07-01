@@ -1,17 +1,13 @@
 package ExternalDataSources
 
 import Utils.SparkUtils
-import org.apache.hadoop.io.{LongWritable, Text}
-import org.apache.hadoop.io.compress.{BZip2Codec, GzipCodec, SnappyCodec}
-import org.apache.hadoop.mapred.TextOutputFormat
-import org.apache.hadoop.mapreduce.Job
-import org.apache.spark.SparkContext
 
 
 /**
   * Created by yunchen on 2017/5/17.
   */
 object SparkLoadWriteHDFS {
+
 
   def main(args: Array[String]): Unit = {
 
@@ -21,41 +17,12 @@ object SparkLoadWriteHDFS {
     }
 
     val sc = SparkUtils.SaprkSessionSC("yunchen")
+    //val sc = SparkUtils.SaprkSessionSP("yunchen")
     val InputFilePath = args(0)
     val OutPutFilePath = args(1)
 
-    //WordCount(sc,InputFilePath,OutPutFilePath,"snappy")
-
-    val job = new Job()
-
-  }
-
-  /**
-    *
-    * 此函数可以实现从文件系统或者hdfs上通过textFile读取数据
-    *
-    * @param sc sparkcontext，这里不能传入sparksession
-    * @param InputFilePath  输入路径
-    * @param OutPutFilePath 结果输入路径
-    * @param compress 压缩格式，后续可以加入更多压缩格式的支持，比如lzo
-    */
-  def WordCount(sc:SparkContext, InputFilePath:String, OutPutFilePath:String , compress:String):Unit = {
-    val count = sc.textFile(InputFilePath).flatMap(_.split(" ")).map(x=>(x,1)).reduceByKey(_+_)
-    if(compress == "bzip"){
-      count.saveAsTextFile(OutPutFilePath,classOf[BZip2Codec])
-    } else if(compress == "snappy"){
-      count.saveAsTextFile(OutPutFilePath,classOf[SnappyCodec])
-    } else if(compress == "gzip"){
-      count.saveAsTextFile(OutPutFilePath,classOf[GzipCodec])
-    }else{
-      System.out.println("输入的压缩格式不支持或者还没有实现！！")
-      System.exit(1)
-    }
-  }
-
-  def customInputFormat():Unit = {
-
-
+    //SparkUtils.ScTextFileWordCount(sc,InputFilePath,OutPutFilePath,"snappy")
+    //SparkUtils.SpTextFileWordCount(sc,InputFilePath,OutPutFilePath,"snappy")
 
   }
 

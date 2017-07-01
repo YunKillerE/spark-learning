@@ -8,10 +8,13 @@ import org.apache.spark.sql.SparkSession
 class SparkUtils {
 
   def SaprkSessionSC(appName:String):SparkSession = {
+
     val spark = SparkSession
       .builder
       .appName(appName)
       .getOrCreate()
+
+    return spark
   }
 
 }

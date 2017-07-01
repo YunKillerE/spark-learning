@@ -1,6 +1,6 @@
 # 环境
     
-    spark 2.1.1
+    spark 2.1.1/spark 1.6.0
     CDH 5.11.0
 
 # 第一章：spark基础知识
@@ -32,8 +32,6 @@
     Loading data from the local flesystem 
     Loading data from HDFS 
     Loading data from HDFS using a custom InputFormat 
-    Loading data from Amazon S3 
-    Loading data from Apache Cassandra 
     Loading data from relational databases 
     
 # 第三章：Spark SQL
@@ -81,8 +79,11 @@
 
 [spark常见故障](https://github.com/jimmy-src/troubleshooting-and-optimization/blob/master/Spark%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/spark%E5%B8%B8%E8%A7%81%E6%95%85%E9%9A%9C.md)
 
-# 代码主要参考Packt的两本书
+# 代码主要参考
 
-    spark cookbook.pdf
-    Packt.Spark.2.0.for.Beginners.pdf
+[Mastering Apache Spark 2](https://www.gitbook.com/book/jaceklaskowski/mastering-apache-spark/details)
+
+spark cookbook.pdf
+
+Packt.Spark.2.0.for.Beginners.pdf
     
