@@ -1,9 +1,10 @@
 package Utils
 
-import breeze.linalg.Axis._1
+import org.apache.hadoop.io.{LongWritable, Text}
 import org.apache.hadoop.io.compress.{BZip2Codec, GzipCodec, SnappyCodec}
+import org.apache.hadoop.mapred.{KeyValueTextInputFormat, TextInputFormat}
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.sql.{Row, SparkSession}
+import org.apache.spark.sql.{DataFrameReader, Row, SparkSession}
 
 /**
   * Created by yunchen on 2017/5/8.
@@ -20,6 +21,7 @@ object SparkUtils {
     val spark = SparkSession
       .builder
       .appName(appName)
+      .enableHiveSupport()
       .getOrCreate()
 
     return  spark
@@ -95,14 +97,29 @@ object SparkUtils {
 
     count.withColumnRenamed("count(1)","count").write.save(OutPutFilePath)
 
-    count.ma
+  }
+
+  /**
+    * 一直没测试成功，跳过，后续再测试
+    * @param sc
+    * @param InputFilePath
+    * @param OutPutFilePath
+    */
+  def customInputFormat(sc:SparkContext, InputFilePath:String, OutPutFilePath:String):Unit = {
+
+    val currencyFile = sc.newAPIHadoopFile[LongWritable, Text, TextInputFormat](InputFilePath)
+
+
 
   }
 
-  def customInputFormat():Unit = {
 
+  def readDataFromHDFS(sc:SparkSession, dataFormat:String, InputFilePath:String, OutPutFilePath:String) = {
 
+    val currFile = sc.read.format("dataFormat").load()
 
-  }
+    currFile.write.format("text").save(OutPutFilePath)
+    }
+
 
 }

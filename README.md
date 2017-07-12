@@ -29,10 +29,8 @@
 
 # [第二章：External Data Sources](https://github.com/jimmy-src/spark-learning/tree/master/%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9AExternal%20Data%20Sources)
 
-    Loading data from the local flesystem 
-    Loading data from HDFS 
-    Loading data from HDFS using a custom InputFormat 
-    Loading data from relational databases 
+    Loading/Writing data from HDFS （Parquet, Avro, CSV, JSON，ORC）
+    Loading/Writing data from relational databases 
     
 # 第三章：Spark SQL
 
