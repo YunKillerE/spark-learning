@@ -1,5 +1,3 @@
-* Loading/Writring data from the local flesystem 
-    主要还是使用textFile，写入使用saveAsTextFile
 * Loading/Writring data from HDFS
     一样还是使用textFile，写入使用saveAsTextFile
 

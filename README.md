@@ -21,7 +21,7 @@
    
             spark编程中基本概念，以及trasformations和action中的算子
    
-   RDD、Dateframe、Dataset
+   RDD、Dateframe、Dataset（参考：[A Tale of Three Apache Spark APIs: RDDs, DataFrames, and Datasets](https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html)）
    
    spark部署
    
@@ -35,7 +35,6 @@
 # 第三章：Spark SQL
 
     Understanding the Catalyst optimizer 
-    Creating HiveContext 
     Inferring schema using case classes 
     Programmatically specifying the schema 
     Loading and saving data using the Parquet format 
@@ -46,7 +45,6 @@
 # 第四章：Spark Streaming
 
     Word count using Streaming 
-    Streaming Twitter data 
     Streaming using Kafka
     
 # 第五章：Machine Learning Using MLlib
@@ -56,21 +54,15 @@
     Classifcation
     Unsupervised Learning
     Recommender Systems
-    
-# 第六章：Graph Processing Using GraphX
-
-    Fundamental operations on graphs 
-    Using PageRank 
-    Finding connected components
-    
-# 第七章：Optimizations and Performance Tuning
+        
+# 第六章：Optimizations and Performance Tuning
 
     Optimizing memory 
     Using compression to improve performance 
     Using serialization to improve performance 
     Optimizing garbage collection 
     Optimizing the level of parallelism 
-    Understanding the future of optimization – project Tungsten
+    Understanding the future of optimization
     
 
 # Spark常见故障解决办法
