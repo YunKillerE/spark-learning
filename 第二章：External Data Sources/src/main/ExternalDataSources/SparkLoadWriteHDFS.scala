@@ -8,7 +8,6 @@ import Utils.SparkUtils
   */
 object SparkLoadWriteHDFS {
 
-
   def main(args: Array[String]): Unit = {
 
     if(args.length < 2){

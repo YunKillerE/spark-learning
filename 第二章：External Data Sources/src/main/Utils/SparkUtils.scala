@@ -60,6 +60,8 @@ object SparkUtils {
       System.out.println("输入的压缩格式不支持或者还没有实现！！")
       System.exit(1)
     }
+
+    sc.stop()
   }
 
 
@@ -84,6 +86,7 @@ object SparkUtils {
 
     count.withColumnRenamed("count(1)","count").write.save(OutPutFilePath)
 
+    sc.stop()
   }
 
   def SpTextFileWordCount(sc:SparkSession, InputFilePath:String, OutPutFilePath:String):Unit = {
@@ -97,9 +100,10 @@ object SparkUtils {
 
     count.withColumnRenamed("count(1)","count").write.save(OutPutFilePath)
 
+    sc.stop()
   }
 
-  /**
+/*  /**
     * 一直没测试成功，跳过，后续再测试
     * @param sc
     * @param InputFilePath
@@ -109,7 +113,7 @@ object SparkUtils {
 
     val currencyFile = sc.newAPIHadoopFile[LongWritable, Text, TextInputFormat](InputFilePath)
 
-  }
+  }*/
 
 
   /**
@@ -126,7 +130,7 @@ object SparkUtils {
     * @param isHeader 是否有schema,主要针对csv，parquet/orc会自动识别schema
     *
     */
-  def readCompressDataFromHDFS(spark:SparkSession, srcDataFormat:String, dstDataFormat:String , InputFilePath:String, OutPutFilePath:String, isHeader:String) = {
+  def readAndWriteDataFromHDFS(spark:SparkSession, srcDataFormat:String, dstDataFormat:String , InputFilePath:String, OutPutFilePath:String, isHeader:String) = {
 
     //val currFile = spark.read.format("csv").options(Map("path"->"hdfs://zjdw-pre0065:8020/user/root/index_data.csv","header"->"true")).load()
     //val currFile = spark.read.format(srcDataFormat).options(Map("path"->InputFilePath,"header"->isHeader)).load()
@@ -145,15 +149,39 @@ object SparkUtils {
       }
     }
 
-    if(dstDataFormat == "text" && srcDataFormat == "text"){
+    if(dstDataFormat == "text" && srcDataFormat == "text" || dstDataFormat != "text" && srcDataFormat != "text"){
       currFile.write.format(dstDataFormat).save(OutPutFilePath)
-    }else if(dstDataFormat != "text" && srcDataFormat == "text"){
+    }else //(dstDataFormat != "text" && srcDataFormat == "text" || dstDataFormat == "text" && srcDataFormat != "text")
+    {
       val schema = currFile.columns
-      currFile.select(schema(0)).write.format(dstDataFormat)
+      currFile.select(schema(0)).write.format(dstDataFormat).save(OutPutFilePath)
     }
 
+    spark.stop()
 
     }
 
+  def readAndDataFromHDFSToDF(spark:SparkSession, srcDataFormat:String, InputFilePath:String, isHeader:String):DataFrame = {
+
+    //val currFile = spark.read.format("csv").options(Map("path"->"hdfs://zjdw-pre0065:8020/user/root/index_data.csv","header"->"true")).load()
+    //val currFile = spark.read.format(srcDataFormat).options(Map("path"->InputFilePath,"header"->isHeader)).load()
+
+    //currFile.write.format(dstDataFormat).save(OutPutFilePath)
+
+    var currFile:DataFrame = null ;
+
+    if(srcDataFormat == "text"){
+      currFile = spark.read.textFile(InputFilePath).toDF()
+    }else{
+      if(isHeader == "true"){
+        currFile = spark.read.format(srcDataFormat).options(Map("path"->InputFilePath,"header"->isHeader)).load()
+      }else{
+        currFile = spark.read.format(srcDataFormat).options(Map("path"->InputFilePath)).load()
+      }
+    }
+
+    return currFile
+
+  }
 
 }
