@@ -14,7 +14,3 @@
 * Loading/Writring data from relational databases
 
         创建jdbc连接
-
-* 读取流式数据
-
-        readStream

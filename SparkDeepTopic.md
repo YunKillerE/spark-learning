@@ -1,11 +1,3 @@
-# spark官方文档完整阅读
-
-    spark programming
-    Spark SQL, DataFrames and Datasets Guide
-    spark streaming
-    strutred streaming
-    MLlib
-    
 # spark执行过程的深入理解
 
     理解Driver进程
@@ -16,7 +8,7 @@
 
 # spark读取和写入的深入理解（Parquet, Avro, CSV, JSON，ORC）
 
-    理解不同格式的读取和写入，以及效率问题
+    理解不同格式的读取和写入，以及效率问题(分区压缩存储)
     Alluxio的高级应用
 
 # spark RDD Transformations算子和Actions算子的高级应用与优化
@@ -55,6 +47,7 @@
 
     spark提交参数的优化
     spark算子使用的优化
+    spark shuffle优化
     
 # spark 2.x源码阅读
 
