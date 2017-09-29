@@ -80,7 +80,6 @@ object StreamingToKuduUseDirectUpdateStateByKey extends Serializable {
       Some(currCount + prevCount)
     }
 
-
     stream.map(record => ((record.value().split(",").toList)(1),1)).updateStateByKey[Int](addFunc)
     .foreachRDD{ rdd =>
 /*
